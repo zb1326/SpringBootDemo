@@ -14,18 +14,24 @@
     <version>1.0.0</version>
 
     <!-- 继承说明：这里继承SpringBoot提供的父工程 -->
+    <!--<parent>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-parent</artifactId>-->
+        <!--<version>1.5.7.RELEASE</version>-->
+        <!--<relativePath/>-->
+    <!--</parent>-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.7.RELEASE</version>
-        <relativePath/>
+        <version>2.0.4.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modules>
+        <module>demo-common</module>
         <module>demo-service</module>
         <module>demo-biz</module>
-        <module>demo-provide</module>
-        <module>demo-common</module>
+        <module>demo-provider</module>
     </modules>
 
     <dependencyManagement>
