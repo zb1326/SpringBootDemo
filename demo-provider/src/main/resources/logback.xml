@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>log/demo-service.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>log/demo-service.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<maxHistory>10</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<!-- %-40(%-35logger{35}:%-4line) -->
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{80} - %msg%n</Pattern>
+		</encoder>
+	</appender>
+	<logger name="com.navinfo">
+		<appender-ref ref="FILE"/>
+	</logger>
+	<logger name="org.springframework">
+		<appender-ref ref="FILE"/>
+	</logger>
+	<logger name="java.sql.Connection">
+		<appender-ref ref="FILE"/>
+	</logger>
+	<logger name="org.mybatis">
+		<appender-ref ref="FILE"/>
+	</logger>
+	<logger name="org.apache">
+		<appender-ref ref="FILE"/>
+	</logger>
+	<logger name="org.ibatis">
+		<appender-ref ref="FILE"/>
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT"/>
+	</root>
+</configuration>
